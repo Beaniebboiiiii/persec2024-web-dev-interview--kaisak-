@@ -1,0 +1,11 @@
+function sortStrings(arr: string[]): string[] {
+    return arr.sort((a, b) => a.localeCompare(b));
+}
+let array1 = ["TH19", "SG20", "TH2"];
+let array2 = ["TH10", "TH3Netflix", "TH1", "TH7"];
+
+let sortedArray1 = sortStrings(array1);
+let sortedArray2 = sortStrings(array2);
+
+console.log(sortedArray1);
+console.log(sortedArray2); 
