@@ -8,3 +8,13 @@ GROUP BY  A.product_name
 ORDER BY B.quantity DESC
 LIMIT 5
 -- END --
+-- ข้อ 6. sql 2อันดับ
+SELECT YEAR(C.order_date),MAX(A.product_name) AS BestSeller,B.quantity
+FROM products AS A
+LEFT JOIN order_details AS B ON A.product_id = B.product_id
+LEFT JOIN orders AS C ON B.order_id = C.order_id
+WHERE YEAR(C.order_date) IN (2016, 2017)
+GROUP BY A.product_name,Year(C.order_date),B.quantity
+order by B.quantity DESC
+LIMIT 5
+-- END --
