@@ -18,3 +18,12 @@ GROUP BY A.product_name,Year(C.order_date),B.quantity
 order by B.quantity DESC
 LIMIT 5
 -- END --
+-- ข้อ 7. ยอดขายทั้งปี
+SELECT YEAR(D.order_date) AS year, SUM(A.unit_price) AS Total,  D.ship_region
+FROM products AS A
+LEFT OUTER JOIN order_details AS B ON A.product_id = B.product_id
+LEFT OUTER JOIN suppliers AS C ON A.supplier_id = C.supplier_id
+LEFT OUTER JOIN orders AS D ON B.order_id = D.order_id
+WHERE D.ship_region = 'Western Europe' AND YEAR(D.order_date) IN (2016, 2017, 2018)
+GROUP BY YEAR(D.order_date), D.ship_region
+-- END --
