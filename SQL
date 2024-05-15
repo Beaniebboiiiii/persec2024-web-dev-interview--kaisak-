@@ -1,0 +1,10 @@
+-- ข้อ 5. sql 5 อันดับแรกสินค้าขายดี ปี2016
+SELECT A.product_name,B.quantity,YEAR(C.order_date)
+FROM products AS A
+LEFT JOIN order_details AS B ON A.product_id = B.product_id
+LEFT JOIN orders AS C ON B.order_id = C.order_id
+WHERE YEAR(C.order_date) = 2016
+GROUP BY  A.product_name
+ORDER BY B.quantity DESC
+LIMIT 5
+-- END --
