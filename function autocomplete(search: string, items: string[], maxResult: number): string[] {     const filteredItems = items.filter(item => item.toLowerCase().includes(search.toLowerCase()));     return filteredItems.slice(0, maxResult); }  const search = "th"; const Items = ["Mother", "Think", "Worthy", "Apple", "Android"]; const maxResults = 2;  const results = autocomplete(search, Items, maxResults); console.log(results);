@@ -1,0 +1,11 @@
+function autocomplete(search: string, items: string[], maxResult: number): string[] {
+    const filteredItems = items.filter(item => item.toLowerCase().includes(search.toLowerCase()));
+    return filteredItems.slice(0, maxResult);
+}
+
+const search = "th";
+const Items = ["Mother", "Think", "Worthy", "Apple", "Android"];
+const maxResults = 2;
+
+const results = autocomplete(search, Items, maxResults);
+console.log(results); 
